@@ -11,6 +11,11 @@ inline vecn<T, length>::vecn(const vecn<T, length>& v) {
 }
 
 template <typename T, const int length>
+inline vecn<T, length>::operator T* () {
+	return &data[0];
+}
+
+template <typename T, const int length>
 inline vecn<T, length>::operator const T* () const {
 	return &data[0];
 }

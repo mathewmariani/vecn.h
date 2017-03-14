@@ -12,6 +12,7 @@ public:
 
 // operators
 public:
+	operator T* ();
 	operator const T* () const;
 
 	T& operator [] (int i);

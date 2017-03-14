@@ -37,6 +37,15 @@ public:
 	vecn operator / (const T& s) const;
 	void operator /= (const T& s);
 
+	// static functions
+	public:
+		static T distance(const vecn& a, const vecn& b);
+		static T dot(const vecn& a, const vecn& b);
+		static T magnitude(const vecn& v);
+		static vecn max(const vecn& a, const vecn& b);
+		static vecn min(const vecn& a, const vecn& b);
+		static vecn normalize(const vecn& v);
+
 // protected variables
 protected:
 	T data[length];

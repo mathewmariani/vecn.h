@@ -43,13 +43,39 @@ Creates a new vector with all components set to zero (default).
 
 Creates a new vector from another vector (copy constructor).
 
+## Static Functions
+
+### distance(const vecn& a, const vecn& b)
+
+Returns the distance between a and b.
+
+### dot(const vecn& a, const vecn& b)
+
+Returns the dot product of a and b.
+
+### magnitude(const vecn& v)
+
+Returns the magnitude (length) of a vector. (warning: expensive operation)
+
+### max(const vecn& a, const vecn& b)
+
+Returns a vector of the largest components of a and b.
+
+### min(const vecn& a, const vecn& b)
+
+Returns a vector of the smallest components of a and b.
+
+### normalize(const vecn& v)
+
+Returns the normalized vector of v.
+
 ## Operators
 
 ### operator T*
 
 Points to the Vector data.
 
-### operator [] (int i)
+### operator []
 
 Access an element in the Vector.
 

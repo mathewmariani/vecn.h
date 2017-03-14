@@ -120,3 +120,55 @@ template <typename T, const int length>
 inline void vecn<T, length>::operator /= (const T& s) {
 	*this = *this / s;
 }
+
+template <typename T, const int length>
+inline T vecn<T, length>::distance(const vecn<T, length>& a, const vecn<T, length>& b) {
+	T sum{ 0 };
+	for (auto i = 0; i < length; ++i) {
+		sum += ((a[i] - b[i])*(a[i] - b[i]));
+	}
+	return (T)std::sqrt(sum);
+}
+
+template <typename T, const int length>
+inline T vecn<T, length>::dot(const vecn<T, length>& a, const vecn<T, length>& b) {
+	T sum{ 0 };
+	for (auto i = 0; i < length; ++i) {
+		sum += (a[i] + b[i]);
+	}
+	return sum;
+}
+
+template <typename T, const int length>
+inline T vecn<T, length>::magnitude(const vecn<T, length>& v) {
+	T sum{ 0 };
+
+	for (auto i = 0; i < length; ++i) {
+		sum += (v[i] * v[i]);
+	}
+
+	return (T)std::sqrt(sum);
+}
+
+template <typename T, const int length>
+inline vecn<T, length> vecn<T, length>::max(const vecn<T, length>& a, const vecn<T, length>& b) {
+	vecn<T, length> ret;
+	for (auto i = 0; i < length; ++i) {
+		ret[i] = std::max(a[i], b[i]);
+	}
+	return ret;
+}
+
+template <typename T, const int length>
+inline vecn<T, length> vecn<T, length>::min(const vecn<T, length>& a, const vecn<T, length>& b) {
+	vecn<T, length> ret;
+	for (auto i = 0; i < length; ++i) {
+		ret[i] = std::min(a[i], b[i]);
+	}
+	return ret;
+}
+
+template <typename T, const int length>
+inline vecn<T, length> vecn<T, length>::normalize(const vecn<T, length>& v) {
+	return (v / vecn<T, length>::magnitude(v));
+}

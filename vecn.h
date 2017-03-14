@@ -39,6 +39,7 @@ public:
 
 	// static functions
 	public:
+		static T angle(const vecn& a, const vecn& b);
 		static T distance(const vecn& a, const vecn& b);
 		static T dot(const vecn& a, const vecn& b);
 		static T magnitude(const vecn& v);

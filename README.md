@@ -45,6 +45,10 @@ Creates a new vector from another vector (copy constructor).
 
 ## Static Functions
 
+### angle(const vecn& a, const vecn& b)
+
+Returns the angle between two vectors. (warning: expensive operation)
+
 ### distance(const vecn& a, const vecn& b)
 
 Returns the distance between a and b.

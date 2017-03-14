@@ -37,7 +37,6 @@ inline vecn<T, length> vecn<T, length>::operator + (const vecn& v) const {
 	for (auto i = 0; i < length; ++i) {
 		ret.data[i] = data[i] + v.data[i];
 	}
-
 	return ret;
 }
 
@@ -52,7 +51,6 @@ inline vecn<T, length> vecn<T, length>::operator - (const vecn& v) const {
 	for (auto i = 0; i < length; ++i) {
 		ret.data[i] = data[i] - v.data[i];
 	}
-
 	return ret;
 }
 
@@ -67,7 +65,6 @@ inline vecn<T, length> vecn<T, length>::operator * (const vecn& v) const {
 	for (auto i = 0; i < length; ++i) {
 		ret.data[i] = data[i] * v.data[i];
 	}
-
 	return ret;
 }
 
@@ -97,7 +94,6 @@ inline vecn<T, length> vecn<T, length>::operator * (const T& s) const {
 	for (auto i = 0; i < length; ++i) {
 		ret.data[i] = data[i] * s;
 	}
-
 	return ret;
 }
 
@@ -112,13 +108,17 @@ inline vecn<T, length> vecn<T, length>::operator / (const T& s) const {
 	for (auto i = 0; i < length; ++i) {
 		ret.data[i] = data[i] / s;
 	}
-
 	return ret;
 }
 
 template <typename T, const int length>
 inline void vecn<T, length>::operator /= (const T& s) {
 	*this = *this / s;
+}
+
+template <typename T, const int length>
+inline T vecn<T, length>::angle(const vecn<T, length>& a, const vecn<T, length>& b) {
+	return (std::acos(dot(a, b) / (magnitude(a) * magnitude(b))) / 0.0174533f);
 }
 
 template <typename T, const int length>
@@ -134,7 +134,7 @@ template <typename T, const int length>
 inline T vecn<T, length>::dot(const vecn<T, length>& a, const vecn<T, length>& b) {
 	T sum{ 0 };
 	for (auto i = 0; i < length; ++i) {
-		sum += (a[i] + b[i]);
+		sum += (a[i] * b[i]);
 	}
 	return sum;
 }
@@ -142,11 +142,9 @@ inline T vecn<T, length>::dot(const vecn<T, length>& a, const vecn<T, length>& b
 template <typename T, const int length>
 inline T vecn<T, length>::magnitude(const vecn<T, length>& v) {
 	T sum{ 0 };
-
 	for (auto i = 0; i < length; ++i) {
 		sum += (v[i] * v[i]);
 	}
-
 	return (T)std::sqrt(sum);
 }
 

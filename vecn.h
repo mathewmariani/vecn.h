@@ -1,6 +1,6 @@
 #pragma once
 
-template <typename T, const int length>
+template <typename T, const std::size_t length>
 class vecn {
 // type definitions
 protected:
